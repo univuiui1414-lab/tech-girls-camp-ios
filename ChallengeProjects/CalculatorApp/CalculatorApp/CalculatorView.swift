@@ -66,25 +66,41 @@ struct CalculatorView: View {
                     .cornerRadius(10)
             }
             .padding(.horizontal)
-
+            
             Spacer()
         }
         .padding()
         
         Divider()
+
         
         // TODO: - Challenge2
-        // 引き算電卓も作ってみよう
-        
     }
+    
+    @State var firstNumberSub: String = ""
+    @State var secondNumberSub: String = ""
+    @State var resultSub: String = "?"
+    
+    
+    
+
     
     // 足し算の処理
     func calculateSum() {
         // TODO: - Challenge1
-        // ここに計算ロジックを記述し、計算結果を表示できるようにしてみよう
-
+        if let firstNumberInt = Int(firstNumber),
+           let secondNumberInt = Int(secondNumber)
+        {
+            let resultInt = firstNumberInt + secondNumberInt
+            result = String(resultInt)
+        }
+        else {
+            
+            result = "Error"
+        }
     }
 }
+
 
 #Preview {
     CalculatorView()
